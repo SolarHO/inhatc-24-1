@@ -9,5 +9,9 @@ age_net.caffemodel 환경 파일
 detection.py 실행 방법 
 - python .\detection.py [예측 이미지]
 
+EX)
+
+![test](https://github.com/user-attachments/assets/8b2414f4-f430-4e1f-b614-d0a6d6097ef3)
+
 ※ dlib 이용 시 아나콘다(가상환경 실행) 필요
 
