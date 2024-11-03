@@ -1,0 +1,66 @@
+import cv2
+from datetime import datetime, timedelta
+from google.cloud import storage
+from google.oauth2 import service_account
+
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+if face_cascade.empty():
+    print("Error loading cascade classifier file.")
+    exit()
+
+camera = cv2.VideoCapture(0)
+
+capture_interval = 5 #seconds
+last_capture_time = datetime.now() - timedelta(seconds=capture_interval)
+
+def upload_image_to_gcs(image_path, bucket_name, destination_blob_name, credentials_path):
+
+	credentials = service_account.Credentials.from_service_account_file(credentials_path)
+		
+	storage_client = storage.Client(credentials=credentials)
+		
+	bucket = storage_client.bucket(bucket_name)
+		
+	blob = bucket.blob(destination_blob_name)
+		
+	blob.upload_from_filename(image_path)
+		
+	print(f"image {image_path} uploaded to {destination_blob_name} in bucket {bucket_name}.")
+
+while True:
+    ret, frame = camera.read()
+    if not ret:
+        print("Failed to grad frame")
+        break
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30,30))
+
+    if len(faces) > 0 and (datetime.now() - last_capture_time).total_seconds() >= capture_interval:
+        last_capture_time = datetime.now()
+
+        for(x, y, w, h) in faces:
+            cv2.rectangle(frame, (x,y),(x + w, y + h),(255, 0, 0), 2)
+
+        timestamp = last_capture_time.strftime('%Y%m%d_%H%M%S')
+        filename = f"person_detected_{timestamp}.jpg"
+        cv2.imwrite(filename, frame)
+        print(f"image saved: {filename}")
+        
+        #클라우드에 파일 업로드
+        image_path = f"/home/inhatc/project/{filename}"
+        bucket_name = "inhatc_test"
+        destination_blob_name = f"test/test_{timestamp}.jpg"
+        credentials_path = "/home/inhatc/project/fluted-polymer-440606-a2-450d3d134caa.json"
+        
+        upload_image_to_gcs(image_path, bucket_name, destination_blob_name, credentials_path)
+	
+    cv2.imshow("Camera",frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+camera.release()
+cv2.destroyAllWindows()
