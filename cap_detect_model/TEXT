@@ -1,0 +1,6 @@
+모자 인식 모델.ver test
+
+사용된 데이터 : https://www.kaggle.com/datasets/shivanandverma/cap-dataset
+사용된 모델 : YOLOv5
+
+마스크와 모자를 쓴 사람 데이터를 찾을 수 없어 이후 마스크 인식 모델과 앙상블을 통해 마스크와 모자 인식 모델 완성 예정
