@@ -64,5 +64,4 @@ if __name__ == '__main__':
     image_path = sys.argv[1]
     predict_age(image_path)
 
-# 필요 라이브러리 dlib -> 이미지 처리 및 기계 학습, 얼굴인식 등을 할 수 있는 c++로 개발된 고성능의 라이브러리
 # dlib -> 이용 시 아나콘다(가상환경 실행) 필요 conda install -c conda-forge dlib
