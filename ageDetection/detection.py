@@ -1,8 +1,8 @@
 import cv2
 import dlib
 
-AGE_MODEL = 'weights/age_deploy.prototxt'  # 가중치 모델 파일
-AGE_PROTO = 'weights/age_net.caffemodel'  # 환경 파일
+AGE_MODEL = '../weights/age_deploy.prototxt'  # 가중치 모델 파일
+AGE_PROTO = '../weights/age_net.caffemodel'  # 환경 파일
 
 age_net = cv2.dnn.readNetFromCaffe(AGE_MODEL, AGE_PROTO) # Dnn 모델
 
