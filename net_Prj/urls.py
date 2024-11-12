@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from replace_image import download_gcs_images
 from main.views import home
 
 from main import views
+
+# 서버 시작 시 이미지 다운로드
+#download_gcs_images()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
