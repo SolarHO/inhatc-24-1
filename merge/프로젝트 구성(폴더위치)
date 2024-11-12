@@ -1,0 +1,10 @@
+project
+	- data
+		- recommender.csv
+	- weights
+		- age_deployprototxt
+		- age_net.caffemodel
+	- cameratest4.py
+	- gender_classification_cnn_last.h5
+	- recommender.py
+	- algorithm.py
