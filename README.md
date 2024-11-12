@@ -1,4 +1,4 @@
-AgeDetection (연령 판단 모델)
+# [AgeDetection (연령 판단 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/ageDetection)
 
 OpenCV와 dlib를 사용하여 얼굴 인식
 - dliv : 이미지 처리 및 기계 학습, 얼굴인식 등을 할 수 있는 c++로 개발된 고성능의 라이브러리
@@ -14,12 +14,13 @@ detection.py 실행 방법
 ※ dlib 이용 시 아나콘다(가상환경 실행) 필요
 
 <hr>
-Recommendation (광고 추천)
+
+# [Recommendation (광고 추천)](https://github.com/SolarHO/inhatc-24-1/tree/main/recommendation)
 
 CountVectorizer와 cosine_similarity를 이용한 광고 추천
 
-recommender.csv
-<br>
+### [Recommendation.csv](https://github.com/SolarHO/inhatc-24-1/blob/main/recommendation/data/recommender.csv)
+
 |Index|Age_Group|Sex|Keywords|Product|
 |---|---|---|---|---|
 |8|8-12|Male|게임 리그오브레전드 메이플스토리 브롤스타즈|문화상품권
