@@ -1,13 +1,35 @@
 <!-- templates/your_template.html -->
-
-<!DOCTYPE html>
-<html lang="ko">
-<head>
+{% load static %}
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
-    <title>이미지 표시</title>
-</head>
-<body>
-    <h1>업로드된 이미지</h1>
-    <img src="{{ MEDIA_URL }}test/플랑크톤.png?authuser=1" alt="플랑크톤 이미지">
-</body>
-</html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Auto-Refresh</title></head><body>
+    <img id="ad-image" src="{% static 'images/ad.png' %}?v={{ last_modified_time }}" alt="Advertisement" style="width: 300px;">
+
+    <script>
+    let lastModifiedTime = {{ last_modified_time|default:0 }};  // Make sure it's a valid timestamp
+
+    // Ensure it's a valid number (timestamp)
+    if (isNaN(lastModifiedTime)) {
+        console.error('Invalid last modified time:', lastModifiedTime);
+        lastModifiedTime = 0;  // Set a default value if it's not valid
+    }
+
+    // Periodically check for changes in the image
+    setInterval(() => {
+        fetch('/image-last-modified/')
+            .then(response => response.json())
+            .then(data => {
+                const newLastModifiedTime = data.last_modified;
+
+                // Compare the current last_modified_time with the new one
+                if (lastModifiedTime !== newLastModifiedTime) {
+                    // If the time has changed, refresh the page
+                    location.reload();
+                }
+
+                // Update the stored last_modified_time for next comparison
+                lastModifiedTime = newLastModifiedTime;
+            })
+            .catch(error => console.error('Error fetching last modified time:', error));
+    }, 5000);  // Check every 5 seconds</script></body></html>   

@@ -21,9 +21,9 @@ def download_gcs_images():
 
 def replace_image():
     # Define the path for the new image and the existing image in the static directory
-    new_image_path = './ad_images/kirby.png'  # Replace this with the actual path to the new image
-    static_image_path = os.path.join('net_Prj', 'static', 'images', '플랑크톤.png')  # Adjust project structure as needed
+    new_image_path = './ad_images/플랑크톤.png'  # Replace this with the actual path to the new image
+    static_image_path = os.path.join('net_Prj', 'static', 'images', 'ad.png')  # Adjust project structure as needed
     # Replace the old image with the new image
-    shutil.copy('./ad_images/kirby.png', './myapp/static/images/플랑크톤.png')
+    shutil.copy(new_image_path, './main/static/images/ad.png')
     
 replace_image()
