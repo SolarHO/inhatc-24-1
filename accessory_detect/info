@@ -1,0 +1,5 @@
+사용 모델 : yolov5
+사용 데이터 : https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&dataSetSn=71441
+
+정밀도 : 0.946
+재현율 : 0.879
