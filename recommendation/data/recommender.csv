@@ -1,25 +1,25 @@
-index,Age_Group,Sex,Keywords,Product
-0,0-2,Female,아기 엄마 하기스 팬티평 신생아 위생,기저귀
-1,0-2,Female,아기 엄마 건강 음식,분유
-2,0-2,male,아기 건강 모유 웰빙 신생아,젖병
-3,0-2,male,아기 친환경,물티슈
-4,0-2,male,아기 친환경 안전,마스크
-5,4-6,Female,장난감 뮤지컬 캐치티니핑 하츄핑 캐릭터,티니핑
-6,4-6,Male,장난감 영웅 매직포스 캐릭터 어린이,뽀로로
-7,8-12,Male,장난감 게임 슈퍼마리오 메이플스토리 오란아,닌텐도
-8,8-12,Male,게임 리그오브레전드 메이플스토리 브롤스타즈,문화상품권
-9,8-12,Male,게임 블럭 스티브 크리퍼,마인크래프트
-10,8-12,Female,음악 예술,피아노
-11,8-12,Female,아이돌 다꾸 아이브,다이어리
-12,8-12,Female,캐릭터 토끼 유아가방 어린이 패션,가방
-13,8-12,Female,어린이 패션 햇빛,모자
-14,8-12,Female,캐릭터 돈 선물,캐릭터지갑
-15,15-20,Male,코로나 질병 감기,마스크
-16,15-20,Female,명품 우드 방향제,화장품
-17,15-20,Female,무신사 야구 캡 햇빛 패션,모자
-18,25-32,Female,무신사 악어가죽 샤넬 구찌 핸드백 패션,가방
-19,25-32,Female,무신사 구찌 샤넬 악어 카드 현금,지갑
-20,38-43,Male,아이언 골프장 골프공,골프
-21,48-53,Male,바디프렌드 허리,안마의자
-22,60-100,Male,어르신 정관장 백세시대 홍삼진액,홍삼
-23,60-100,Male,노인 백세시대 치과 스케일링,임플란트
+index,Age_Group,Sex,Keywords,Product,Image
+0,0-2,Female,아기 엄마 하기스 팬티평 신생아 위생,기저귀,/home/inhatc/django/net_Prj/ad_images/0.jpg
+1,0-2,Female,아기 엄마 건강 음식,분유,/home/inhatc/django/net_Prj/ad_images/1.jpg
+2,0-2,male,아기 건강 모유 웰빙 신생아,젖병,/home/inhatc/django/net_Prj/ad_images/2.jpg
+3,0-2,male,아기 친환경,물티슈,/home/inhatc/django/net_Prj/ad_images/3.jpg
+4,0-2,male,아기 친환경 안전,마스크,/home/inhatc/django/net_Prj/ad_images/4.jpg
+5,4-6,Female,장난감 뮤지컬 캐치티니핑 하츄핑 캐릭터,티니핑,/home/inhatc/django/net_Prj/ad_images/5.jpg
+6,4-6,Male,장난감 영웅 매직포스 캐릭터 어린이,뽀로로,/home/inhatc/django/net_Prj/ad_images/5.jpg
+7,8-12,Male,장난감 게임 슈퍼마리오 메이플스토리 오란아,닌텐도,/home/inhatc/django/net_Prj/ad_images/7.jpg
+8,8-12,Male,게임 리그오브레전드 메이플스토리 브롤스타즈,문화상품권,/home/inhatc/django/net_Prj/ad_images/8.jpg
+9,8-12,Male,게임 블럭 스티브 크리퍼,마인크래프트,/home/inhatc/django/net_Prj/ad_images/9.jpg
+10,8-12,Female,음악 예술,피아노,/home/inhatc/django/net_Prj/ad_images/10.jpg
+11,8-12,Female,아이돌 다꾸 아이브,다이어리,/home/inhatc/django/net_Prj/ad_images/11.jpg
+12,8-12,Female,캐릭터 토끼 유아가방 어린이 패션,가방,/home/inhatc/django/net_Prj/ad_images/12.jpg
+13,8-12,Female,어린이 패션 햇빛,모자,/home/inhatc/django/net_Prj/ad_images/13.jpg
+14,8-12,Female,캐릭터 돈 선물,캐릭터지갑,/home/inhatc/django/net_Prj/ad_images/14.jpg
+15,15-20,Male,코로나 질병 감기,마스크,/home/inhatc/django/net_Prj/ad_images/15.jpg
+16,15-20,Female,명품 우드 방향제,화장품,/home/inhatc/django/net_Prj/ad_images/16.jpg
+17,15-20,Female,무신사 야구 캡 햇빛 패션,모자,/home/inhatc/django/net_Prj/ad_images/17.jpg
+18,25-32,Female,무신사 악어가죽 샤넬 구찌 핸드백 패션,가방,/home/inhatc/django/net_Prj/ad_images/18.jpg
+19,25-32,Female,무신사 구찌 샤넬 악어 카드 현금,지갑,/home/inhatc/django/net_Prj/ad_images/19.jpg
+20,38-43,Male,아이언 골프장 골프공,골프,/home/inhatc/django/net_Prj/ad_images/20.jpg
+21,48-53,Male,바디프렌드 허리,안마의자,/home/inhatc/django/net_Prj/ad_images/21.jpg
+22,60-100,Male,어르신 정관장 백세시대 홍삼진액,홍삼,/home/inhatc/django/net_Prj/ad_images/22.jpg
+23,60-100,Male,노인 백세시대 치과 스케일링,임플란트,/home/inhatc/django/net_Prj/ad_images/23.jpg
