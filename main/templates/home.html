@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Auto-Refresh</title></head><body>
-    <img id="ad-image" src="{% static 'images/ad.png' %}?v={{ last_modified_time }}" alt="Advertisement" style="width: 300px;">
+    <img id="ad-image" src="{% static 'images/ad.jpg' %}?v={{ last_modified_time }}" alt="Advertisement" style="width: 300px;">
 
     <script>
     let lastModifiedTime = {{ last_modified_time|default:0 }};  // Make sure it's a valid timestamp

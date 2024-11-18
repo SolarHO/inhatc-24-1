@@ -19,11 +19,10 @@ def download_gcs_images():
             blob.download_to_filename(local_file_path)
             print(f"Downloaded {blob.name} to {local_file_path}")
 
-def replace_image():
-    # Define the path for the new image and the existing image in the static directory
-    new_image_path = './ad_images/플랑크톤.png'  # Replace this with the actual path to the new image
-    static_image_path = os.path.join('net_Prj', 'static', 'images', 'ad.png')  # Adjust project structure as needed
-    # Replace the old image with the new image
-    shutil.copy(new_image_path, './main/static/images/ad.png')
+# def replace_image():
+#     new_image_path = './ad_images/ad.'  # 새 이미지 경로
+#     static_image_path = os.path.join('net_Prj', 'static', 'images', 'ad.png')  # static 이미지 경로(페이지에 표시될 이미지)
+#     # 기존 이미지를 새 이미지(new_image_path)로 교체
+#     shutil.copy(new_image_path, './main/static/images/ad.png')
     
-replace_image()
+# replace_image()

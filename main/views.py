@@ -8,7 +8,7 @@ def home(request):
 
 def show_adimage(request):
     # Path to the image
-    image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.png')
+    image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.jpg')
     
     # Get the last modified time of the image
     if os.path.exists(image_path):
@@ -21,7 +21,7 @@ def show_adimage(request):
 
 def image_last_modified(request):
     # Path to the image
-    image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.png')
+    image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.jpg')
 
     if not os.path.exists(image_path):
         return JsonResponse({'error': 'Image not found'}, status=404)
