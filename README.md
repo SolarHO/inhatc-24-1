@@ -28,7 +28,7 @@
 - 이선호: 클라우드 스토리지 구축 및 Django 서버와 연동, 직관적 광고 웹 페이지 개발
 
 # 🏗️시스템 아키텍처
-![시스템 아키텍처 drawio](https://github.com/user-attachments/assets/edf403bd-9bc2-4576-86af-68213cd426ea)
+![시스템 아키텍처 drawio](https://github.com/user-attachments/assets/47ff527d-23d6-4266-86c8-66ca3050df6d)
 
 # 진행사항
 
