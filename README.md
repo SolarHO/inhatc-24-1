@@ -57,8 +57,11 @@ detection.py 실행 방법
 
 <hr>
 
-# [CapDetection (모자 검출 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/cap_detect_model)
-# [AccessoryDetection (악세사리 검출 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/accessory_detect)
+# 아이템 검출
+
+## [CapDetection (모자 인식 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/cap_detect_model)
+## [AccessoryDetection (악세사리 인식 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/accessory_detect)
+
 YOLOv5 모델 사용
 - YOLO : Object Detection Framework 중 하나
 - 실시간 객체 탐지
