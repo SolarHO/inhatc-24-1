@@ -34,6 +34,12 @@
 
 <hr>
 
+# [GenderDetection (성별 판단 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/Detect)
+OpenCV를 통해 얼굴 인식
+CNN구조를 통해 성별 추론
+
+<hr>
+
 # [AgeDetection (연령 판단 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/ageDetection)
 
 OpenCV와 dlib를 사용하여 얼굴 인식
@@ -48,6 +54,24 @@ detection.py 실행 방법
 ![test](https://github.com/user-attachments/assets/8b2414f4-f430-4e1f-b614-d0a6d6097ef3)
 
 ※ dlib 이용 시 아나콘다(가상환경 실행) 필요
+
+<hr>
+
+# [CapDetection (모자 검출 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/cap_detect_model)
+# [AccessoryDetection (악세사리 검출 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/accessory_detect)
+YOLOv5 모델 사용
+- YOLO : Object Detection Framework 중 하나
+- 실시간 객체 탐지
+- 이미지와 객체의 위치정보가 담겨있는 라벨링 데이터를 통해 학습
+
+악세사리 인식 모델
+- 목걸이, 귀걸이, 선글라스, 안경테 인식
+
+### 모자 검출 Image 및 인식률
+![cap1](https://github.com/user-attachments/assets/c177c6ae-e8ed-43d2-8e99-2276f6e00919)
+
+### 악세사리 검출 Image 및 인식률
+![ac](https://github.com/user-attachments/assets/2d2c405c-e053-4e29-87a4-ac74e1e69cf0)
 
 <hr>
 
