@@ -16,7 +16,7 @@
 
 # 🛠️주요 기술 및 장치
 - 라즈베리파이 5
-- 카메라모듈
+- 카메라모듈(ENTUS WC33 Full HD 360)
 - OpenCV
 - Google Cloud Storage
 - Django
