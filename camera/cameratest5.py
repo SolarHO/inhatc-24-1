@@ -98,13 +98,16 @@ while True:
         print(gender)
         print(confidence)
 
-        prd, img = recommender_image.recommender(Age_Group='38-43', Sex='Female', Item=None)
-        print(prd)
-        print(img)
+        #정확도가 80이상일떼만 광고 변경
+        if(confidence >= 80) :
+            prd, img = recommender_image.recommender(Age_Group=age, Sex=gender, Item=None)
+            print(prd)
+            print(img)
+            
+            replace_image(img)#장고 화면에 띄울 광고 이미지 변경
+            image = cv2.imread(img)
+            cv2.imshow('test',image)
         
-        replace_image(img)#장고 화면에 띄울 광고 이미지 변경
-        image = cv2.imread(img)
-        cv2.imshow('test',image)
         # #클라우드에 파일 업로드
         # image_path = f"/home/inhatc/project/{filename}"
         # bucket_name = "inhatc_test"
