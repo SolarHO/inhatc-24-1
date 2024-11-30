@@ -12,3 +12,8 @@ https://console.cloud.google.com/storage/browser/inhatc_test
 ## Google Cloud Storage
 
 ![스크린샷 2024-11-16 215031](https://github.com/user-attachments/assets/ca7a7602-7a6d-42f3-94e9-06214bc62fb4)
+
+
+## Django page
+
+![20241125_03h07m29s_grim](https://github.com/user-attachments/assets/39a4d74a-e9a4-48d4-a069-ffda924cb5b5)
