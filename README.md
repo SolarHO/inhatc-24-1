@@ -93,7 +93,7 @@
     # Pass last_modified_time to the template
     return render(request, 'home.html', {'last_modified_time': last_modified_time})
 
-def image_last_modified(request):
+  def image_last_modified(request):
     # Path to the image
     image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.jpg')
 
@@ -105,7 +105,7 @@ def image_last_modified(request):
     
     # Return last modified time in JSON response
     return JsonResponse({'last_modified': last_modified_time})
-      ```
+ ```
 - 광고이미지는 Django서버 실행시에 Google Cloud Storage에서 받아오며, ad_images디렉토리에 recommeder.csv파일의 인덱스번호.jpg로 저장된다.
 
 ![20241125_03h07m29s_grim](https://github.com/user-attachments/assets/39a4d74a-e9a4-48d4-a069-ffda924cb5b5)
