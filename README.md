@@ -83,19 +83,33 @@ model = Sequential([
 # [AgeDetection (연령 판단 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/ageDetection)
 
 OpenCV와 dlib를 사용하여 얼굴 인식
-- dliv : 이미지 처리 및 기계 학습, 얼굴인식 등을 할 수 있는 c++로 개발된 고성능의 라이브러리
-  <h4> -> 카메라에서 사람인식 후 이미지 전송 (제거 예정)</h4>
-age_deploy.prototxt 가중치 모델 파일 <br>
-age_net.caffemodel 환경 파일
+- dliv : 이미지 처리 및 기계 학습, 얼굴인식 라이브러리
+- age_deploy.prototxt 가중치 모델 파일
+- age_net.caffemodel 환경 파일
 
-detection.py 실행 방법 
+### 연령목록
+['(0-2)', '(4-6)', '(8-12)', '(15-20)', '(25-32)', '(38-43)', '(48-53)', '(60-100)']
+- 나이가 비슷한 사람들 사이에서는 차이를 구별불가, 비슷한 얼굴 특징을 공유하는 연령대를 하나의 그룹화
+- 그룹으로 나누면 모델이 연령 범위 내에서 오차를 더 쉽게 관리
+
+
+### detection.py 실행 방법 
 - python .\detection.py [예측 이미지]
 
 ![test](https://github.com/user-attachments/assets/8b2414f4-f430-4e1f-b614-d0a6d6097ef3)
 
+
 ※ dlib 이용 시 아나콘다(가상환경 실행) 필요
 
-<hr>
+### ETC
+- MiVOLO: Multi-input Transformer for Age and Gender Estimation (코넬 대학)
+- 얼굴 이미지가 보이지 않더라도 몸 전체 이미지를 활용해 나이와 성별을 동시에 예측할 수 있는 모델
+- 얼굴과 몸 정보를 동시에 사용할 때 성능이 더욱 향상
+
+### 비전 트랜스포머 
+- 글로벌 관계 학습(트랜스포머의 셀프 어텐션 사용)
+- 작은 이미지 패치를 독립적으로 처리 후 관계 학습
+- 대량의 데이터에서 뛰어난 성능 발휘
 
 # 아이템 검출
 
@@ -149,15 +163,15 @@ CountVectorizer와 cosine_similarity를 이용한 광고 추천
 
 3. 코사인 유사도 계산
   - combined_c_sim = cosine_similarity(c_vector_combined, c_vector_combined).argsort()[:, ::-1]
-<br>
-모델 인식 상태
+
+### 모델 인식 상태(카메라 인식 상태에 따른 처리)
 
 - 연령대 O 성별 O 착용제품 O
   + 연령대와 성별을 기준으로 제품 추천
   <pre>
   <code>
-    product = recommender(Age_Group='8-12', Sex='Female', Item="가방")
-    print(product)
+    product = recommender(Age_Group='8-12', Sex='Female', Item="가방") 
+    print(product) # 모자
   </code>
 </pre>
 
@@ -166,7 +180,7 @@ CountVectorizer와 cosine_similarity를 이용한 광고 추천
   <pre>
   <code>
     product = recommender(Age_Group='8-12', Item="가방")
-    print(product)
+    print(product) # 캐릭터지갑
   </code>
 </pre>
 
@@ -175,7 +189,7 @@ CountVectorizer와 cosine_similarity를 이용한 광고 추천
   <pre>
   <code>
     product = recommender(Age_Group='8-12')
-    print(product)
+    print(product) # 닌텐도
   </code>
 </pre>
 
@@ -184,13 +198,11 @@ CountVectorizer와 cosine_similarity를 이용한 광고 추천
   <pre>
   <code>
     product = recommender()
-    print(product)
+    print(product) # 골프
   </code>
 </pre>
 
  
-<hr>
-
 # [CameraModule (카메라 모듈 연동)](https://github.com/SolarHO/inhatc-24-1/tree/main/camera)
 
 1. 카메라 피드는 OpenCV를 사용하여 초기화되며, 피드에 접근할 수 없는 경우 오류메시지와 함께 프로그램이 종료됩니다.
