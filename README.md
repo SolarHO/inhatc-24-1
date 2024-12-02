@@ -139,8 +139,33 @@ YOLOv5 모델 사용
 <hr>
 
 # [Recommendation (광고 추천)](https://github.com/SolarHO/inhatc-24-1/tree/main/recommendation)
+- 콘텐츠 기반 필터링
+- CountVectorizer와 cosine_similarity를 이용한 광고 추천
+  - CountVectorizer : 텍스트 데이터를 숫자 벡터(행렬)로 변환
+  - Cosine Similarity : 두 벡터 간의 각도를 기반으로 하며, 0에서 1 사이의 값을 반환
+ 
+![콘첸츠 기반](https://github.com/user-attachments/assets/ea0324e0-839a-4d7e-a499-8f5c56501c66)
 
-CountVectorizer와 cosine_similarity를 이용한 광고 추천
+### 장점
+- 새로운 사용자라도 선호도를 추론하지 않아도 추천 가능
+- 제품 간의 텍스트 정보를 활용하므로 데이터 요구사항이 비교적 낮음
+
+### 단점
+- 입력된 제품의 정보에 국한되므로 추천 범위가 제한적
+ 
+### 임베딩과 코사인 유사도의 차이
+|특징|임베딩(Embedding)|코사인 유사도(Cosine Similarity)|
+|---|---|---|
+|기능|데이터를 벡터로 변환 (데이터 표현 방법)|두 벡터 간의 유사도를 측정|
+|입력|고차원 데이터(텍스트, 이미지 등)|두 벡터|
+|출력|벡터(임베딩 벡터)|유사도 값 (0 ~ 1 또는 -1 ~ 1)|
+|적용 단계|모델 학습 또는 데이터 전처리 단계에서 생성|모델 학습 후 또는 추천/검색 단계에서 활용|
+|사용 사례|추천 시스템, 텍스트/이미지 특징 표현, 데이터 압축|검색 엔진, 추천 시스템, 클러스터링, 문서/문장/단어 유사도 계산|
+
+- 코사인 유사도(Cosine Similarity) 사용 이유
+  - CountVectorizer를 사용하면 고차원적인 임베딩 공간을 구축할 필요 없이 텍스트의 핵심적인 패턴을 포착
+  - 임베딩을 통한 고차원 벡터 공간 생성은 종종 더 복잡하고 계산량이 많을 수 있으며, 이로 인해 대규모 데이터셋에서 처리 성능에 영향을 줄 수 있습니다.
+  - 코사인 유사도를 사용한 벡터화는 계산 효율성을 높음
 
 ### [Recommendation.csv](https://github.com/SolarHO/inhatc-24-1/blob/main/recommendation/data/recommender.csv)
 
@@ -202,6 +227,9 @@ CountVectorizer와 cosine_similarity를 이용한 광고 추천
   </code>
 </pre>
 
+## 협업 필터링
+- 사용자 간의 행동(예: 구매, 클릭 등)이나 사용자와 아이템 간의 관계 데이터를 기반으로 추천
+- 사용자 또는 제품이 적을 경우(특히 신규 서비스), 추천 품질이 낮음
  
 # [CameraModule (카메라 모듈 연동)](https://github.com/SolarHO/inhatc-24-1/tree/main/camera)
 
