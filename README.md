@@ -46,8 +46,66 @@
 
 ## Django page
 
-- 장고 페이지는 5초마다 이미지가 변경되었는지 확인하여 이미지 변경시 자동으로 새로고침된다. 
+- 장고 페이지는 5초마다 이미지가 변경되었는지 확인하여 이미지 변경시 자동으로 새로고침된다.
+  ```
+  //html템플릿 script코드
+   <script>
+    let lastModifiedTime = {{ last_modified_time|default:0 }};  // Make sure it's a valid timestamp
+
+    // Ensure it's a valid number (timestamp)
+    if (isNaN(lastModifiedTime)) {
+        console.error('Invalid last modified time:', lastModifiedTime);
+        lastModifiedTime = 0;  // Set a default value if it's not valid
+    }
+
+    // Periodically check for changes in the image
+    setInterval(() => {
+        fetch('/image-last-modified/')
+            .then(response => response.json())
+            .then(data => {
+                const newLastModifiedTime = data.last_modified;
+
+                // Compare the current last_modified_time with the new one
+                if (lastModifiedTime !== newLastModifiedTime) {
+                    // If the time has changed, refresh the page
+                    location.reload();
+                }
+
+                // Update the stored last_modified_time for next comparison
+                lastModifiedTime = newLastModifiedTime;
+            })
+            .catch(error => console.error('Error fetching last modified time:', error));
+    }, 5000);  // Check every 5 seconds</script>
+  ```
 - 이미지는 /static/images의 ad.jpg이미지를 로드하며 해당 이미지 변경시의 timestamp를 통해 변경을 감지한다.
+  ```
+  #views.py 이미지 로드 관련 코드
+  def show_adimage(request):
+    # Path to the image
+    image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.jpg')
+    
+    # Get the last modified time of the image
+    if os.path.exists(image_path):
+        last_modified_time = os.path.getmtime(image_path)
+    else:
+        last_modified_time = 0  # Default to 0 if the image doesn't exist
+
+    # Pass last_modified_time to the template
+    return render(request, 'home.html', {'last_modified_time': last_modified_time})
+
+def image_last_modified(request):
+    # Path to the image
+    image_path = os.path.join(settings.BASE_DIR, 'main', 'static', 'images', 'ad.jpg')
+
+    if not os.path.exists(image_path):
+        return JsonResponse({'error': 'Image not found'}, status=404)
+    
+    # Get the last modified time of the image
+    last_modified_time = os.path.getmtime(image_path)
+    
+    # Return last modified time in JSON response
+    return JsonResponse({'last_modified': last_modified_time})
+      ```
 - 광고이미지는 Django서버 실행시에 Google Cloud Storage에서 받아오며, ad_images디렉토리에 recommeder.csv파일의 인덱스번호.jpg로 저장된다.
 
 ![20241125_03h07m29s_grim](https://github.com/user-attachments/assets/39a4d74a-e9a4-48d4-a069-ffda924cb5b5)
