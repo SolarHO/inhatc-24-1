@@ -42,9 +42,39 @@
 <hr>
 
 # [GenderDetection (성별 판단 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/Detect)
-OpenCV를 통해 얼굴 인식
+OpenCV를 통해 얼굴 인식 <br>
 CNN구조를 통해 성별 추론
-
+#### 사용 코드
+```
+model = Sequential([
+    Input(shape=(200, 200, 3)),  # 입력 데이터 / 200,200 사이즈 3개의 채널 (RGB 컬러)
+    Conv2D(36, kernel_size=3),  # 36개의 필터 사이즈 3*3
+    BatchNormalization(),  # 모델 학습 안정화
+    Activation('relu'),  # relu 활성화 함수 사용
+    MaxPooling2D(pool_size=3, strides=2),  # 다운샘플링 3*3 사이즈로 2칸씩 이동
+    Conv2D(64, kernel_size=3),  # 64개의 필터 사이즈 3*3
+    BatchNormalization(),
+    Activation('relu'),
+    MaxPooling2D(pool_size=3, strides=2),
+    Conv2D(128, kernel_size=3),  # 128개의 필터 사이즈 3*3
+    BatchNormalization(),
+    Activation('relu'),
+    MaxPooling2D(pool_size=3, strides=2),
+    Conv2D(256, kernel_size=3),  # 256개의 필터 사이즈 3*3
+    BatchNormalization(),
+    Activation('relu'),
+    MaxPooling2D(pool_size=3, strides=2),
+    Conv2D(512, kernel_size=3),  # 512개의 필터 사이즈 3*3
+    BatchNormalization(),
+    Activation('relu'),
+    MaxPooling2D(pool_size=3, strides=2),
+    Flatten(),  # 다차원 데이터를 1차원 벡터로 변환
+    Dropout(0.25),  # 오버피팅(과적합) 방지 
+    Dense(512, activation='relu'),  # Dense 안전연결레이어
+    Dropout(0.5),
+    Dense(2, activation='softmax', name='gender') # 출력 데이터 남성 여성 2개
+])
+```
 <hr>
 
 # [AgeDetection (연령 판단 모델)](https://github.com/SolarHO/inhatc-24-1/tree/main/ageDetection)
@@ -73,9 +103,15 @@ YOLOv5 모델 사용
 - YOLO : Object Detection Framework 중 하나
 - 실시간 객체 탐지
 - 이미지와 객체의 위치정보가 담겨있는 라벨링 데이터를 통해 학습
-
+- 데이터 형태 예시)
+  - 5 0.379369 0.419819 0.035085 0.081811
+  - 5 0.577118 0.412881 0.032533 0.081332
+  - nc: 6  # 총 클래스 개수
+  - names: ['Background', 'Hat', 'Glasses frame', 'Sunglasses', 'Necklace', 'Earrings']
+<br>
 악세사리 인식 모델
 - 목걸이, 귀걸이, 선글라스, 안경테 인식
+<br>
 
 ### 모자 검출 Image 및 인식률
 ![cap1](https://github.com/user-attachments/assets/c177c6ae-e8ed-43d2-8e99-2276f6e00919)
